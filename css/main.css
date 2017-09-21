@@ -1,0 +1,77 @@
+/*general fonts*/
+html, body{
+  margin: 0;
+	padding: 0;
+  font-family: "Droid Sans Mono", monospace;
+  font-style: normal;
+  font-size: 110%;
+  color:#ccc;
+}
+/*full site width setting is here*/
+#terminal {
+  background-color:#3e3e3e;
+	height:100%;
+	position:fixed;
+	bottom:0px;
+	left:0px;
+	width:100%;
+	overflow:scroll;
+	z-index:9999;
+}
+#output {
+  background-color:inherit;
+  font-family: inherit;
+  list-style: none;
+	padding-left: 0.5em;
+	padding-right: 1em;
+  line-height: 0.5em;
+	margin-top: 1em;
+}
+
+ul li {
+  padding:0.2em;
+  font-size: inherit;
+}
+.cmd-panel,
+.cmd-table,
+.cmd-prompt,
+.cmd-input,
+.cmd-input-text
+{
+  /*common settings*/
+  border:0px;
+  width:100%;
+  font-family: inherit;
+  font-size: 100%;
+}
+.cmd-panel{
+  padding-left: 0.5em;
+}
+.cmd-table{
+
+  vertical-align: top;
+  padding-right: 2em;
+}
+.username{
+  color:#8ae234;
+  /*minty green*/
+  width:auto;
+  vertical-align: top;
+}
+.dir{
+  color:#508acf;
+  /*minty blue*/
+  width:auto;
+  vertical-align: top;
+}
+.cmd-input-text{
+  background-color:transparent;
+  outline:none;
+  color:inherit;
+  word-wrap: normal;
+  padding-left: 0.2em;
+  padding-right: 1em;
+
+/*need to add multiline input support here*/
+}
+/*main chat output window*/
