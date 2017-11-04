@@ -9,6 +9,39 @@ function load(){
   memory.inputs = [];
   memory.pointer = 0;
 }
+function OS(input){
+  //if input is a keyword
+  var output = keyword(input)
+  if (output != ""){
+    return output;
+  } else {
+    return "Not a Keyword"
+
+  }
+
+  function keyword(input){
+    var output = ""
+    switch (input.toUpperCase()) {
+      //electrical equations
+      case "P":
+        output = "P = IV, P = (V^2)/R, P = (I^2)*R";
+        break;
+      case "V":
+        output = "V = IR, V = P/I, V = (P*R)^0.5";
+        break;
+      case "I":
+        output = "I = V/R, I = P/V, I = (P/R)^0.5";
+        break;
+      case "R":
+        output = "R = V/I, R = (V^2)/P, R = P/(I^2)";
+        break;
+      default:
+        output = "";
+    }
+    return output;
+  }
+
+}
 
 function checkKey(e) {
 //pressing special keys will invoke special actions
@@ -20,7 +53,7 @@ function checkKey(e) {
           document.getElementById("input").value = "";
           //console.log(input);
           TerminalLog(input, dir, user);
-        //  TerminalLog(OS.interp(input));
+          TerminalLog(OS(input));
           break;
         case 9:  // tab pressed
           e.preventDefault();
@@ -46,7 +79,7 @@ function checkMouse(e) {
 }
 
 function TerminalLog(input, dir, user) {
-  //displays text to teh user in teh Terminal
+  //displays text to the user in the Terminal
   //i know, i know... its very messy. Shhh.
   var ul = document.getElementById("output");
   var li = document.createElement("li");
