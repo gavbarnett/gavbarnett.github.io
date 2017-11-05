@@ -106,7 +106,7 @@ function OS(input){
     return (output);
   }
   function toengnot(input){
-  //  input = String(input).replace("Infinity",Number.POSITIVE_INFINITY);
+    //  input = String(input).replace("Infinity",Number.POSITIVE_INFINITY);
     var output = Number(input).toFixed(2);
     //if (input >= 1e24) {return (input/1e24).toFixed(2) + "Y";}
     //if (input >= 1e21) {return (input/1e21).toFixed(2) + "Z";}
@@ -131,7 +131,7 @@ function OS(input){
   }
   function calculator(input){
     //supports E/e notation (10E3 = 10e3 = 10,000)
-    //supports Engineeing notion (10k = 10,000)
+    //supports Engineeing notation (10k = 10,000)
     input = input.replace(/\s+/g, '')
     var equation = [];
     var i = 0;
