@@ -150,6 +150,14 @@ function OS(input){
       }
       return (output);
     }
+    if (input.includes("sqrt")){
+      equation = input.split("sqrt");
+      output = "";
+      for (i=1; i<equation.length; i = i+2){
+        output = output.concat(Math.pow(Number(calculator(equation[i])),0.5));
+      }
+      return (output);
+    }
     return fromsymbol(input);
   }
 
