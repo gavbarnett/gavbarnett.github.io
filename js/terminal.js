@@ -126,6 +126,14 @@ function OS(input){
       }
       return (output);
     }
+    if (input.includes("//")){ //parallel = 1/(1/a+1/b)
+      equation = input.split("//");
+      output = 1/(Number(calculator(equation[0])));
+      for (i=1; i<equation.length; i++){
+        output += 1/(Number(calculator(equation[i])));
+      }
+      return (1/Number(output));
+    }
     if (input.includes("/")){
       equation = input.split("/");
       output = Number(calculator(equation[0]));
