@@ -102,11 +102,13 @@ function OS(input){
     return (output);
   }
   function toengnot(input){
+  //  input = String(input).replace("Infinity",Number.POSITIVE_INFINITY);
     var output = Number(input).toFixed(2);
     //if (input >= 1e24) {return (input/1e24).toFixed(2) + "Y";}
     //if (input >= 1e21) {return (input/1e21).toFixed(2) + "Z";}
     //if (input >= 1e18) {return (input/1e18).toFixed(2) + "E";}
-    if (Math.abs(input) >= 1e18) {return (Number.POSITIVE_INFINITY);}
+    if (input <= -1e18) {return (Number.NEGATIVE_INFINITY);}
+    if (input >= 1e18) {return (Number.POSITIVE_INFINITY);}
     if (Math.abs(input) >= 1e15) {return (input/1e15).toFixed(2) + "P";}
     if (Math.abs(input) >= 1e12) {return (input/1e12).toFixed(2) + "T";}
     if (Math.abs(input) >= 1e9) {return (input/1e9).toFixed(2) + "G";}
@@ -145,6 +147,13 @@ function OS(input){
     input = input.replace("*-","*_");
     input = input.replace("/-","/_");
     input = input.replace("^-","^_");
+    input = input.replace("sin-","sin_");
+    input = input.replace("asin-","asin_");
+    input = input.replace("cos-","cos_");
+    input = input.replace("acos-","acos_");
+    input = input.replace("tan-","tan_");
+    input = input.replace("atan-","atan_");
+    input = input.replace("sqrt-","sqrt_");
     //brackets
     if (input.includes(")")){
       var index = input.search(/[)]/);

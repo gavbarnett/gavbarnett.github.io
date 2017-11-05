@@ -47,6 +47,11 @@ function tests(){
   OS_tester("-Infinity", "= -Infinity");
   OS_tester("-Infinity^2", "= Infinity");
   OS_tester("1/0", "= Infinity");
+  OS_tester("sin(1)", "= 841.47m");
+  OS_tester("sin1", "= 841.47m");
+  OS_tester("sin(-1)", "= -841.47m");
+  OS_tester("sin-1", "= -841.47m");
+
   if (test_flag ==0 ){
     console.log ("All tests PASSED");
   }
