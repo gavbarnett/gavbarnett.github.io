@@ -28,6 +28,7 @@ function OS(input){
     var output = input;
     output = output.replace("pi",Math.PI);
     output = output.replace('"', answer);
+    output = output.replace("Infinity", Number.POSITIVE_INFINITY);
     output = fromengnot(output);
     return (output);
   }
@@ -102,23 +103,24 @@ function OS(input){
   }
   function toengnot(input){
     var output = Number(input).toFixed(2);
-    if (input >= 1e24) {return (input/1e24).toFixed(2) + "Y";}
-    if (input >= 1e21) {return (input/1e21).toFixed(2) + "Z";}
-    if (input >= 1e18) {return (input/1e18).toFixed(2) + "E";}
-    if (input >= 1e15) {return (input/1e15).toFixed(2) + "P";}
-    if (input >= 1e12) {return (input/1e12).toFixed(2) + "T";}
-    if (input >= 1e9) {return (input/1e9).toFixed(2) + "G";}
-    if (input >= 1e6) {return (input/1e6).toFixed(2) + "M";}
-    if (input >= 1e3) {return (input/1e3).toFixed(2) + "k";}
+    //if (input >= 1e24) {return (input/1e24).toFixed(2) + "Y";}
+    //if (input >= 1e21) {return (input/1e21).toFixed(2) + "Z";}
+    //if (input >= 1e18) {return (input/1e18).toFixed(2) + "E";}
+    if (Math.abs(input) >= 1e18) {return (Number.POSITIVE_INFINITY);}
+    if (Math.abs(input) >= 1e15) {return (input/1e15).toFixed(2) + "P";}
+    if (Math.abs(input) >= 1e12) {return (input/1e12).toFixed(2) + "T";}
+    if (Math.abs(input) >= 1e9) {return (input/1e9).toFixed(2) + "G";}
+    if (Math.abs(input) >= 1e6) {return (input/1e6).toFixed(2) + "M";}
+    if (Math.abs(input) >= 1e3) {return (input/1e3).toFixed(2) + "k";}
     //if (input < 1e-21) {return (input/1e-24).toFixed(2) + "y";}
     //if (input < 1e-18) {return (input/1e-21).toFixed(2) + "z";}
     //if (input < 1e-15) {return (input/1e-18).toFixed(2) + "a";}
-    if (input < 1e-15) {return (0).toFixed(2);}
-    if (input < 1e-12) {return (input/1e-15).toFixed(2) + "f";}
-    if (input < 1e-9) {return (input/1e-12).toFixed(2) + "p";}
-    if (input < 1e-6) {return (input/1e-9).toFixed(2) + "n";}
-    if (input < 1e-3) {return (input/1e-6).toFixed(2) + "u";}
-    if (input < 1e0) {return (input/1e-3).toFixed(2) + "m";}
+    if (Math.abs(input) < 1e-15) {return (0).toFixed(2);}
+    if (Math.abs(input) < 1e-12) {return (input/1e-15).toFixed(2) + "f";}
+    if (Math.abs(input) < 1e-9) {return (input/1e-12).toFixed(2) + "p";}
+    if (Math.abs(input) < 1e-6) {return (input/1e-9).toFixed(2) + "n";}
+    if (Math.abs(input) < 1e-3) {return (input/1e-6).toFixed(2) + "u";}
+    if (Math.abs(input) < 1e0) {return (input/1e-3).toFixed(2) + "m";}
     return (output);
   }
   function calculator(input){
