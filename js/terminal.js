@@ -90,6 +90,14 @@ function OS(input){
       equation[0].splice(equation[0].length-1,1);
       equation[0].toString();
       equation[0] = equation[0].join("(");
+      //implicit multiplication
+      if ((equation[0] != "") && (!isNaN(equation[0].substr(length-1)))){
+        equation[0] = equation[0].concat("*");
+      }
+      if ((equation[1] != "") && (!isNaN(equation[1].substr(0,1)))){
+        equation[1] = "*".concat(equation[1]);
+      }
+
       output = equation[0].concat(String(output),String(equation[1]));
       output = calculator(output);
       return (output);
