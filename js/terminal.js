@@ -9,6 +9,7 @@ function load(){
   document.getElementById("input").value = "";
   memory.inputs = [];
   memory.pointer = 0;
+  tests();
 }
 function OS(input){
   //if input is a keyword
@@ -33,22 +34,70 @@ function OS(input){
 
   function fromengnot(input){
     var output = String(input);
-    output = output.replace("Y","e24");
-    output = output.replace("Z","e21");
-    output = output.replace("E","e18");
-    output = output.replace("P","e15");
-    output = output.replace("T","e12");
-    output = output.replace("G","e9");
-    output = output.replace("M","e6");
-    output = output.replace("k","e3");
-    output = output.replace("m","e-3");
-    output = output.replace("u","e-6");
-    output = output.replace("n","e-9");
-    output = output.replace("p","e-12");
-    output = output.replace("f","e-15");
-    output = output.replace("a","e-18");
-    output = output.replace("z","e-21");
-    output = output.replace("y","e-24");
+    if (output.includes("Y")){
+      output = output.replace("Y","");
+      return(output * 1e24);
+    }
+    if (output.includes("Z")){
+      output = output.replace("Z","");
+      return(output * 1e21);
+    }
+    if (output.includes("E")){
+      output = output.replace("E","");
+      return(output * 1e18);
+    }
+    if (output.includes("P")){
+      output = output.replace("P","");
+      return(output * 1e15);
+    }
+    if (output.includes("T")){
+      output = output.replace("T","");
+      return(output * 1e12);
+    }
+    if (output.includes("G")){
+      output = output.replace("G","");
+      return(output * 1e9);
+    }
+    if (output.includes("M")){
+      output = output.replace("M","");
+      return(output * 1e6);
+    }
+    if (output.includes("k")){
+      output = output.replace("k","");
+      return(output * 1e3);
+    }
+    if (output.includes("m")){
+      output = output.replace("m","");
+      return(output * 1e-3);
+    }
+    if (output.includes("u")){
+      output = output.replace("u","");
+      return(output * 1e-6);
+    }
+    if (output.includes("n")){
+      output = output.replace("n","");
+      return(output * 1e-9);
+    }
+    if (output.includes("p")){
+      output = output.replace("p","");
+      return(output * 1e-12);
+    }
+    if (output.includes("f")){
+      output = output.replace("f","");
+      return(output * 1e-15);
+    }
+    if (output.includes("a")){
+      output = output.replace("a","");
+      return(output * 1e-18);
+    }
+    if (output.includes("z")){
+      output = output.replace("z","");
+      return(output * 1e-21);
+    }
+    if (output.includes("y")){
+      output = output.replace("y","");
+      return(output * 1e-24);
+    }
     return (output);
   }
   function toengnot(input){
@@ -61,9 +110,10 @@ function OS(input){
     if (input >= 1e9) {return (input/1e9).toFixed(2) + "G";}
     if (input >= 1e6) {return (input/1e6).toFixed(2) + "M";}
     if (input >= 1e3) {return (input/1e3).toFixed(2) + "k";}
-    if (input < 1e-21) {return (input/1e-24).toFixed(2) + "y";}
-    if (input < 1e-18) {return (input/1e-21).toFixed(2) + "z";}
-    if (input < 1e-15) {return (input/1e-18).toFixed(2) + "a";}
+    //if (input < 1e-21) {return (input/1e-24).toFixed(2) + "y";}
+    //if (input < 1e-18) {return (input/1e-21).toFixed(2) + "z";}
+    //if (input < 1e-15) {return (input/1e-18).toFixed(2) + "a";}
+    if (input < 1e-15) {return (0).toFixed(2);}
     if (input < 1e-12) {return (input/1e-15).toFixed(2) + "f";}
     if (input < 1e-9) {return (input/1e-12).toFixed(2) + "p";}
     if (input < 1e-6) {return (input/1e-9).toFixed(2) + "n";}
@@ -155,6 +205,54 @@ function OS(input){
       output = "";
       for (i=1; i<equation.length; i = i+2){
         output = output.concat(Math.sqrt(Number(calculator(equation[i]))));
+      }
+      return (output);
+    }
+    if (input.includes("asin")){
+      equation = input.split("asin");
+      output = "";
+      for (i=1; i<equation.length; i = i+2){
+        output = output.concat(Math.asin(Number(calculator(equation[i]))));
+      }
+      return (output);
+    }
+    if (input.includes("acos")){
+      equation = input.split("acos");
+      output = "";
+      for (i=1; i<equation.length; i = i+2){
+        output = output.concat(Math.acos(Number(calculator(equation[i]))));
+      }
+      return (output);
+    }
+    if (input.includes("atan")){
+      equation = input.split("atan");
+      output = "";
+      for (i=1; i<equation.length; i = i+2){
+        output = output.concat(Math.atan(Number(calculator(equation[i]))));
+      }
+      return (output);
+    }
+    if (input.includes("sin")){
+      equation = input.split("sin");
+      output = "";
+      for (i=1; i<equation.length; i = i+2){
+        output = output.concat(Math.sin(Number(calculator(equation[i]))));
+      }
+      return (output);
+    }
+    if (input.includes("cos")){
+      equation = input.split("cos");
+      output = "";
+      for (i=1; i<equation.length; i = i+2){
+        output = output.concat(Math.cos(Number(calculator(equation[i]))));
+      }
+      return (output);
+    }
+    if (input.includes("tan")){
+      equation = input.split("tan");
+      output = "";
+      for (i=1; i<equation.length; i = i+2){
+        output = output.concat(Math.tan(Number(calculator(equation[i]))));
       }
       return (output);
     }
