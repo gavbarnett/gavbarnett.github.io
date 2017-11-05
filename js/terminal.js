@@ -124,6 +124,7 @@ function OS(input){
   function calculator(input){
     //supports E/e notation (10E3 = 10e3 = 10,000)
     //supports Engineeing notion (10k = 10,000)
+    input = input.replace(/\s+/g, '');
     var equation = [];
     var i = 0;
     if (!isNaN(input)) {
