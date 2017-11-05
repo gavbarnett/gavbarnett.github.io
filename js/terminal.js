@@ -19,7 +19,7 @@ function OS(input){
     //return "Not a Keyword";
     output = toengnot(calculator(input));
     answer = output;
-    return output;
+    return ("= "  + output);
   }
   return ("I don't understand!");
 
