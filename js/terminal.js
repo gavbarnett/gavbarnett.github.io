@@ -32,7 +32,7 @@ function OS(input){
   }
 
   function fromengnot(input){
-    var output = input;
+    var output = String(input);
     output = output.replace("Y","e24");
     output = output.replace("Z","e21");
     output = output.replace("E","e18");
@@ -82,7 +82,7 @@ function OS(input){
     }
     //brackets
     if (input.includes(")")){
-      var index = input.search(/[/)]/);
+      var index = input.search(/[)]/);
       equation[0] = input.substr(0,index);
       equation[1] = input.substr(index+1);
       equation[0] = equation[0].split("(");
@@ -104,41 +104,41 @@ function OS(input){
     }
     if (input.includes("+")){
       equation = input.split("+");
-      output = calculator(equation[0]);
+      output = Number(calculator(equation[0]));
       for (i=1; i<equation.length; i++){
-        output += calculator(equation[i]);
+        output += Number(calculator(equation[i]));
       }
       return (output);
     }
     if (input.includes("-")){
       equation = input.split("-");
-      output = calculator(equation[0]);
+      output = Number(calculator(equation[0]));
       for (i=1; i<equation.length; i++){
-        output -= calculator(equation[i]);
+        output -= Number(calculator(equation[i]));
       }
       return (output);
     }
     if (input.includes("*")){
       equation = input.split("*");
-      output = calculator(equation[0]);
+      output = Number(calculator(equation[0]));
       for (i=1; i<equation.length; i++){
-        output *= calculator(equation[i]);
+        output *= Number(calculator(equation[i]));
       }
       return (output);
     }
     if (input.includes("/")){
       equation = input.split("/");
-      output = calculator(equation[0]);
+      output = Number(calculator(equation[0]));
       for (i=1; i<equation.length; i++){
-        output /= calculator(equation[i]);
+        output /= Number(calculator(equation[i]));
       }
       return (output);
     }
     if (input.includes("^")){
       equation = input.split("^");
-      output = calculator(equation[0]);
+      output = Number(calculator(equation[0]));
       for (i=1; i<equation.length; i++){
-        output = Math.pow(output,calculator(equation[i]));
+        output = Math.pow(output,Number(calculator(equation[i])));
       }
       return (output);
     }
