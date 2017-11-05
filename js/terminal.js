@@ -34,6 +34,10 @@ function OS(input){
   }
 
   function fromengnot(input){
+    //negative number un-catcher
+    if (input.substr(0,1) == "_"){
+      input = "-".concat(input.substr(1));
+    }
     var output = String(input);
     if (output.includes("Y")){
       output = output.replace("Y","");

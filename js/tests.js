@@ -51,6 +51,7 @@ function tests(){
   OS_tester("sin1", "= 841.47m");
   OS_tester("sin(-1)", "= -841.47m");
   OS_tester("sin-1", "= -841.47m");
+  OS_tester("-pi", "= -3.14");
 
   if (test_flag ==0 ){
     console.log ("All tests PASSED");
