@@ -17,8 +17,8 @@ function OS(input){
     return output;
   } else {
     //return "Not a Keyword";
-    output = toengnot(calculator(input));
-    answer = output;
+    answer = calculator(input);
+    output = toengnot(answer);
     return ("= "  + output);
   }
   return ("I don't understand!");
@@ -154,7 +154,7 @@ function OS(input){
       equation = input.split("sqrt");
       output = "";
       for (i=1; i<equation.length; i = i+2){
-        output = output.concat(Math.pow(Number(calculator(equation[i])),0.5));
+        output = output.concat(Math.sqrt(Number(calculator(equation[i]))));
       }
       return (output);
     }
