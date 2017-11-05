@@ -126,13 +126,25 @@ function OS(input){
   function calculator(input){
     //supports E/e notation (10E3 = 10e3 = 10,000)
     //supports Engineeing notion (10k = 10,000)
-    input = input.replace(/\s+/g, '');
+    input = input.replace(/\s+/g, '')
     var equation = [];
     var i = 0;
+    //negative number un-catcher
+    if (input.substr(0,1) == "_"){
+      input = "-".concat(input.substr(1));
+    }
+
     if (!isNaN(input)) {
       output = input;
       return Number(output);
     }
+    //negative number catcher
+    if (input.substr(0,1) == "-"){
+      input = "_".concat(input.substr(1));
+    }
+    input = input.replace("*-","*_");
+    input = input.replace("/-","/_");
+    input = input.replace("^-","^_");
     //brackets
     if (input.includes(")")){
       var index = input.search(/[)]/);

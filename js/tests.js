@@ -18,11 +18,14 @@ function tests(){
   OS_tester("2^2","= 4.00");
   OS_tester("2^2","= 4.00");
   OS_tester("(-2)^2","= 4.00");
+  OS_tester("2^-2","= 250.00m");
+  OS_tester("2^(-2)","= 250.00m");
   OS_tester("(-2)^3","= -8.00");
   OS_tester("2(2)","= 4.00");
   OS_tester("2*2","= 4.00");
   OS_tester("(-2)*(-2)","= 4.00");
   OS_tester("(-2)*2","= -4.00");
+  OS_tester("2*-2-3","= -7.00");
   OS_tester("pi", "= 3.14");
   OS_tester("2k*7k+0.2k","= 14.00M");
   OS_tester("sqrt(2)","= 1.41");
@@ -38,13 +41,14 @@ function tests(){
   OS_tester("(7+7)k//(3+3)k", "= 4.20k");
   OS_tester("2 ( 2 ) ","= 4.00");
   OS_tester(" ( 7 + 7 ) k // ( 3 + 3 ) k ", "= 4.20k");
-  OS_tester("0-1", "= -1.00")
-  OS_tester("1e100", "= Infinity")
-  OS_tester("Infinity^2", "= Infinity")
-  OS_tester("-Infinity", "= -Infinity")
-  OS_tester("-Infinity^2", "= Infinity")
+  OS_tester("0-1", "= -1.00");
+  OS_tester("1e100", "= Infinity");
+  OS_tester("Infinity^2", "= Infinity");
+  OS_tester("-Infinity", "= -Infinity");
+  OS_tester("-Infinity^2", "= Infinity");
+  OS_tester("1/0", "= Infinity");
   if (test_flag ==0 ){
     console.log ("All tests PASSED");
-    console.log (testresults);
   }
+    console.log (testresults);
 }
