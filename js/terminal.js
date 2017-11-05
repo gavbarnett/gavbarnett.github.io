@@ -74,7 +74,6 @@ function OS(input){
   function calculator(input){
     //supports E/e notation (10E3 = 10e3 = 10,000)
     //supports Engineeing notion (10k = 10,000)
-    //supports common number base (0b10 = binary 10 = decimal 2)
     var equation = [];
     var i = 0;
     if (!isNaN(input)) {
@@ -82,6 +81,19 @@ function OS(input){
       return Number(output);
     }
     //brackets
+    if (input.includes(")")){
+      var index = input.search(/[/)]/);
+      equation[0] = input.substr(0,index);
+      equation[1] = input.substr(index+1);
+      equation[0] = equation[0].split("(");
+      output = calculator(equation[0][equation[0].length-1]);
+      equation[0].splice(equation[0].length-1,1);
+      equation[0].toString();
+      equation[0] = equation[0].join("(");
+      output = equation[0].concat(String(output),String(equation[1]));
+      output = calculator(output);
+      return (output);
+    }
     if (input.includes("+")){
       equation = input.split("+");
       output = calculator(equation[0]);
