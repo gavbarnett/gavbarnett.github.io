@@ -284,6 +284,22 @@ function OS(input){
       }
       return (output);
     }
+    if (input.includes("log")){
+      equation = input.split("log");
+      output = "";
+      for (i=1; i<equation.length; i = i+2){
+        output = output.concat(Math.log10(Number(calculator(equation[i]))));
+      }
+      return (output);
+    }
+    if (input.includes("ln")){
+      equation = input.split("ln");
+      output = "";
+      for (i=1; i<equation.length; i = i+2){
+        output = output.concat(Math.log(Number(calculator(equation[i]))));
+      }
+      return (output);
+    }
     return fromsymbol(input);
   }
 
