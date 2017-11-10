@@ -28,6 +28,7 @@ function OS(input){
     var output = input;
     output = output.replace("pi",Math.PI);
     output = output.replace('"', answer);
+    output = output.replace('e', Math.exp(1));
     output = output.replace("Infinity", Number.POSITIVE_INFINITY);
     output = fromengnot(output);
     return (output);

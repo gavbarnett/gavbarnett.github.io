@@ -54,6 +54,11 @@ function tests(){
   OS_tester("-pi", "= -3.14");
   OS_tester("log(10*10)", "= 2.00");
   OS_tester("ln(2)", "= 693.15m");
+  OS_tester("e^2", "= 7.39");
+  OS_tester("1e3", "= 1.00k");
+  OS_tester("1E4", "= 10.00k");
+  OS_tester("e^2", "= 7.39");
+  OS_tester("ln(e)", "= 1.00");
 
   if (test_flag ==0 ){
     console.log ("All tests PASSED");
