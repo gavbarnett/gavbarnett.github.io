@@ -62,6 +62,9 @@ function tests(){
 
   if (test_flag ==0 ){
     console.log ("All tests PASSED");
+    TerminalLog("Everything is awesome!");
+  } else {
+    TerminalLog("Something is unexpected!");
   }
-    console.log (testresults);
+  console.log (testresults);
 }
