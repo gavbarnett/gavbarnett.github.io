@@ -64,7 +64,7 @@ function tests(){
     console.log ("All tests PASSED");
     TerminalLog("Everything is awesome!");
   } else {
-    TerminalLog("Something is unexpected!");
+    TerminalLog("Something is unexpected! ");
   }
   console.log (testresults);
 }
